@@ -47,3 +47,20 @@ function Promise(F) {
   F(resolve, reject);
 }
 ```
+
+---
+
+## サンプル
+```
+new Promise(f => {  // 敢えて f と書いている（普通は resolve と書くところ）
+	console.log('--- A ---');
+	setTimeout(() => {
+		f('resolved');
+	}, 2000);
+	console.log('--- B ---');
+})
+.then((msg) => {
+	console.log('--- C ---');
+	console.log(msg);
+});
+```

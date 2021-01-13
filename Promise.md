@@ -63,6 +63,8 @@ new Promise(f => {  // 敢えて f と書いている（普通は resolve と書
 	console.log('--- C ---');
 	console.log(msg);
 });
+
+console.log('--- D ---');
 ```
 
 ```

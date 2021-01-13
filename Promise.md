@@ -8,6 +8,16 @@ new Promise(f => {  // 敢えて f と書いている（普通は resolve と書
 	console.log('--- クライアント接続 ---');
 	console.log(msg);
 });
+
+console.log('--- C ---');
+
+// --------------
+
+function WaitForClient(f_cb) {
+	setTimeout(() => {
+		f_cb('connected');
+	}, 2000);
+}
 ```
 
 上のプロミスを、擬似的に書くと以下のようになる。<br>

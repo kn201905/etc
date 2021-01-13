@@ -54,9 +54,7 @@ function Promise(F) {
 ```
 new Promise(f => {  // 敢えて f と書いている（普通は resolve と書くところ）
 	console.log('--- A ---');
-	setTimeout(() => {
-		f('resolved');
-	}, 2000);
+	f('resolved');
 	console.log('--- B ---');
 })
 .then((msg) => {

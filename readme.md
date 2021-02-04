@@ -32,7 +32,7 @@ https://qiita.com/grinpeaceman/items/b5a6082f94c9e4891613
 　できあがるファイルで重要なのは下の３つだけ。namespace のところに表示されるものは、プロジェクトを作成する時に付けた名前になっていると思う。
 
 (ア) Program.cs（ソリューションエクスプローラで、Program.cs をダブルクリック）
-```
+```cs
 namespace TestProgram
 {
 	static class Program
@@ -49,7 +49,7 @@ namespace TestProgram
 ```
 
 (イ) Form1.cs（ソリューションエクスプローラで Form1.cs を右クリックして、「コードの表示」をクリック）
-```
+```cs
 namespace TestProgram
 {
 	public partial class Form1 : Form
@@ -63,7 +63,7 @@ namespace TestProgram
 ```
 
 (ウ) Form1.Designers.cs（ソリューションエクスプローラで、Forms1.cs の左側の ▶ マークをクリックすると、Form1.Designers.cs が表示されるので、それをダブルクリック）
-```
+```cs
 namespace TestProgram
 {
 	partial class Form1
@@ -105,7 +105,7 @@ namespace TestProgram
 * C# は、プログラム中にある `static void Main()` から実行が開始される、という仕様になっている。だから、(ア) の `static void Main()` からプログラムが開始される。
 
 * 以下の２つは、描画関連の内部スイッチの変更。時間に余裕があるときに、ネットで調べると良いと思う。詳細を知ったとしても、特に変更するものではないものだと思う。
-```
+```cs
 Application.EnableVisualStyles();
 Application.SetCompatibleTextRenderingDefault(false);
 ```
@@ -126,7 +126,7 @@ Application.SetCompatibleTextRenderingDefault(false);
 >　`class A { ... }` とすると、`...` の部分が「A を構成する部品」という意味になるよ。「class」は、１つのまとまったものを表す。学校での「クラス」と同じ概念。
 >
 >　以下のように書くと、`Form1` というクラスの中に、`Form1()` という関数があるという意味になる。
-> ```
+> ```cs
 > class Form1
 > {
 >	Form1()
@@ -157,7 +157,7 @@ Application.SetCompatibleTextRenderingDefault(false);
 
 　とりあえず、以下のようにコードを書き足して、F5 キーで実行させてみて欲しい。
 
-```
+```cs
 namespace TestProgram
 {
 	public partial class Form1 : Form
@@ -187,12 +187,12 @@ namespace TestProgram
 * 「名前を付ける」のと、「new で生成する」のを２行に分けて書くのが面倒くさい場合は、まとめることができる。以下の (a) と (b) は同じ意味になる。
 
 (a)
-```
+```cs
 TextBox text_box;
 text_box = new TextBox();
 ```
 (b)
-```
+```cs
 TextBox text_box = new TextBox();
 ```
 
@@ -214,20 +214,20 @@ TextBox text_box = new TextBox();
 　C# では、名前を決めて、new で生成して、それを渡したり操作したりする、という感覚が必要。位置を指定するためだけに、 **「位置という情報を作成する」** 必要がある。  
   さっきのサイズ設定と同じ感覚。
 
-```
+```cs
 Point box_pos;　　　　　　　　　// 名前を決める
 box_pos = new Point(50, 50);　// new で生成する
 
 text_box.Location = box_pos;　// 作った位置（Point）を渡す
 ```
 または、
-```
+```cs
 text_box.Location = new Point(50, 50);  // new で生成したものを、直接渡すこともできる
 ```
 
 # ボタンを追加してみる
 
-```
+```cs
 namespace TestProgram
 {
 	public partial class Form1 : Form
@@ -258,7 +258,7 @@ namespace TestProgram
 * ウィンドウを閉じるときは、Form に Close() を命令すればよい。
 * Button クラスで作成されたオブジェクト（＝部品）は、ボタンが押されると Click に設定されたメソッド（＝関数）を呼び出す。
 
-```
+```cs
 namespace TestProgram
 {
 	public partial class Form1 : Form
@@ -297,7 +297,7 @@ namespace TestProgram
 
 * テキストボックスに、メッセージを追加表示させたい場合は `AppendText()` という命令を使う。
 * 考え方としては以下のようになるけれど、以下のままではエラーとなる。
-```
+```cs
 namespace TestProgram
 {
 	public partial class Form1 : Form
@@ -341,7 +341,7 @@ namespace TestProgram
 
 　名前の有効範囲を広めるために、{ } の外側で名前を宣言する。
 
-```
+```cs
 namespace TestProgram
 {
 	public partial class Form1 : Form
@@ -378,7 +378,7 @@ namespace TestProgram
 ```
 　名前を作ると同時に new をすることもできるから、以下のように書いてもよい。（`new TextBox();` の場所が変わっただけ）
 
-```
+```cs
 namespace TestProgram
 {
 	public partial class Form1 : Form
